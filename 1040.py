@@ -1,6 +1,8 @@
 #! /usr/bin/env python3
-
+#pylint: disable=missing-module-docstring, missing-function-docstring
+import datetime
 import argparse
+import sys
 
 def create_parse():
     parser = argparse.ArgumentParser(
@@ -9,10 +11,10 @@ def create_parse():
     return parser
 
 def log(msg):
-    t=datetime.now()
-    print(t.isoformat(),": ",msg, file = sys.stderr)
+    t = datetime.datetime()
+    print(t.isoformat(), ": ", msg, file=sys.stderr)
 
-brackets = min, max, base, rate
+#brackets = min, max, base, rate
 
 #2019
 #MFS, SS
@@ -51,13 +53,6 @@ brackets = min, max, base, rate
 #204100,306175,46628.5,.35
 #306175,,82354.75,.37
 
-
-
-
-
-
-
-
 def start():
     parser = create_parse()
     args = parser.parse_args()
@@ -69,7 +64,5 @@ def start():
     if verbose:
         log("Program started.")
 
-
 if __name__ == '__main__':
     start()
-
