@@ -73,6 +73,8 @@ class Return:
         self.personal_exemption = 0
         self.taxpayer_date_of_birth = datetime.date()
         self.tax_year_end = datetime.date(2019, 12, 31)
+        self.taxpayer_blind = False
+        self.spouse_blind = False
 
     def age_at_year_end(self, date_of_birth):
         """ Calculates age in years as of last day of tax year """
