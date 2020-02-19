@@ -30,6 +30,9 @@ def start():
     if verbose:
         log("Program started.")
 
+    test = t1040.Return()
+    test.taxpayer_name = "Joe Taxpayer"
+
 
 if __name__ == "__main__":
     start()
