@@ -41,7 +41,7 @@ class Return:
             [204100, 510300, 45210, 0.35],
             [510300, None, 152380, 0.37],
         ],
-        "s": [
+        "single": [
             [0, 9700, 0, 0.10],
             [9700, 39475, 970, 0.12],
             [39475, 84200, 4543, 0.22],
@@ -72,3 +72,20 @@ class Return:
         self.itemized_deduction_total = 0
         self.personal_exemption = 0
         self.taxpayer_date_of_birth = datetime.date()
+        self.tax_year_end = datetime.date(2019, 12, 31)
+
+    def age_at_year_end(self, date_of_birth):
+        if date_of_birth == "" and not self.taxpayer_date_of_birth:
+            raise ValueError("Date of birth not set, cannot caclulate age")
+
+        elif date_of_birth == "":
+            date_of_birth = self.taxpayer_date_of_birth
+
+        if date_of_birth > self.tax_year_end:
+            return 0
+        dob = datetime.date(date_of_birth)
+        daysold = self.tax_year_end - dob
+        return daysold.days // 365  # days // 365 = years old at end of tax year
+
+    def age_today(self, date_of_birth):
+        return
