@@ -1,3 +1,4 @@
+""" modules for income tax """
 import datetime
 
 
@@ -63,7 +64,6 @@ class Return:
 
     def __init__(self):
         self.taxpayername = ""
-        self.taxid = ""
         self.baseform = "1040"
         self.tax_year = "2019"
         self.filingstatus = ""
@@ -99,5 +99,4 @@ class Return:
             date_of_birth = self.taxpayer_date_of_birth
 
         daysold = datetime.date.today() - date_of_birth
-
         return daysold // 365
