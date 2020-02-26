@@ -2,7 +2,7 @@
 import datetime
 
 
-class taxReturn:
+class TaxReturn:
     """ Tax return class """
 
     personal_exemptions = {
@@ -98,3 +98,9 @@ class taxReturn:
 
         daysold = datetime.date.today() - date_of_birth
         return daysold // 365
+
+    def hello(self, x):
+        print("hello +x")
+
+
+
