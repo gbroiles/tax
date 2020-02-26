@@ -2,8 +2,8 @@
 import datetime
 
 
-class Return:
-    """ Tax return """
+class taxReturn:
+    """ Tax return class """
 
     personal_exemptions = {
         "single": 12200,
@@ -71,23 +71,21 @@ class Return:
         self.adjusted_gross_income = 0
         self.itemized_deduction_total = 0
         self.personal_exemption = 0
-        self.taxpayer_date_of_birth = datetime.date()
         self.tax_year_end = datetime.date(2019, 12, 31)
         self.taxpayer_blind = False
         self.spouse_blind = False
 
     def age_at_year_end(self, date_of_birth):
         """ Calculates age in years as of last day of tax year """
-        if date_of_birth == "" and not self.taxpayer_date_of_birth:
-            raise ValueError("Date of birth not set, cannot caclulate age")
+#        if date_of_birth == "" and not self.taxpayer_date_of_birth:
+#            raise ValueError("Date of birth not set, cannot caclulate age")
 
-        if date_of_birth == "":
-            date_of_birth = self.taxpayer_date_of_birth
+#        if date_of_birth == "":
+#            date_of_birth = self.taxpayer_date_of_birth
 
-        if date_of_birth > self.tax_year_end:
-            return 0
-        dob = datetime.date(date_of_birth)
-        daysold = self.tax_year_end - dob
+#        if date_of_birth > self.tax_year_end:
+#            return 0
+        daysold = self.tax_year_end - date_of_birth
         return daysold.days // 365  # days // 365 = years old at end of tax year
 
     def age_today(self, date_of_birth):
@@ -100,3 +98,5 @@ class Return:
 
         daysold = datetime.date.today() - date_of_birth
         return daysold // 365
+
+
