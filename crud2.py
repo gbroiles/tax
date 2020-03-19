@@ -1,7 +1,7 @@
 class Testme:
-    def hello(name):
+    def hello(self, name):
         print("hello " + name)
 
 
-test = Testme
+test = Testme()
 test.hello("world")
